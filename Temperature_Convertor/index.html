@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    .container{
+        background-color: #969696;
+        margin:50px;
+        padding:70px 100px;
+        
+    }
+    .celfer{
+        display:inline-block;
+        margin-right: 30px;
+        
+    }
+    #celin{
+        display:block;
+    }
+    #ferin{
+        display:block;
+    }
+    .equal{
+        display:inline-block;
+        position:relative;
+        bottom:50px;
+        right: 15px;
+        font-size:30px;
+    }
+    input[type=number]{
+        font-size: 30px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    label{
+        font-size:30px;
+    }
+</style>
+<body>
+    <h1>Temperature Convertor</h1>
+    <div class="container">
+        <div id="cel" class="celfer">
+            <input type="number" id="celin" value="0">
+            <label for="celin">Celsius</label>
+        </div>
+        <div class="equal">=</div>
+        <div id="fer" class="celfer">
+            <input type="number" id="ferin" value="32">
+            <label for="ferin">Fahrenheit</label>
+        </div>
+    </div>
+    <script>
+        let cel=document.querySelector('#celin');
+        let fer=document.querySelector('#ferin');
+
+        cel.addEventListener('input',function(){
+            let c=this.value;
+            let f=(c* 9/5) + 32
+            fer.value=f;
+        });
+        fer.addEventListener('input',function(){
+            let f=this.value;
+            let c=(f-32)* 5/9;
+            cel.value=c;
+        });
+    </script>
+</body>
+</html>

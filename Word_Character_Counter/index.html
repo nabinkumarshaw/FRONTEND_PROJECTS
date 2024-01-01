@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+    h2{
+        text-align: center;
+        background-color: aqua;
+    }
+    #count{
+        padding: 30px;
+        margin: 20px;
+        display: flex;
+        justify-content: space-around;
+        background-color: beige;
+    }
+    input[type=textbox]{
+        background-color: rgb(66, 155, 155);
+        border:2px solid black;
+        padding: 30px;
+        margin: 20px;
+        height: 200px;
+        width:90%
+    }
+</style>
+
+<body>
+    <h2>Word Counter</h2>
+    <div class="container">
+        
+           <p >Words:
+           <input id="word" type="number">
+            </p>
+           <p >Character:
+            <input id="char" type="number">
+           </p>   
+            <input id="write" type="textbox"> 
+    </div>
+    <script>
+    let write=document.querySelector('#write');
+    let word=document.getElementById('word');
+    let char=document.getElementById('char'); 
+    write.addEventListener('input',function(){
+        var text=this.value;
+        let count1=text.length;
+        char.value=count1;
+        text=text.trim();
+        
+        let words=text.split(" ");
+        let removespace=words.filter(function(elm){
+            return elm !="";
+            
+        });
+        let count2=removespace.length;
+        word.value=count2;
+    });
+
+    </script>
+</body>
+</html>
+
+

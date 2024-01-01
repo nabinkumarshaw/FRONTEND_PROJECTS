@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormValidation</title>
+</head>
+<style>
+    body{
+        background-color: #3498db;
+        margin:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container{
+        text-align:center;
+        background-color: white;
+        padding: 50px; 
+    }
+    h1{
+        font-weight: bold;
+    }
+    input{
+        padding: 5px;
+        margin: 10px;
+    }
+    #btn{
+        width: 175px;
+        padding: 5px;
+        text-align: center;
+        margin-top: 5px;
+        background-color: #3498db;
+        border: 0px;
+        color:white;
+        cursor: pointer;
+    }
+    .error{
+        text-align: left;
+        color:red;
+        margin: 0;
+        margin-left: 10px;
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <h1>Login</h1>
+        <form  id="form" action="">
+        <input type="text" placeholder="username" id="username">
+        <br>
+        <p class="error" id="texterror"></p>
+        <input type="password" placeholder="Password" id="password">
+        <br>
+        <p class="error" id="passerror"></p>
+        <button id="btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        let username=document.getElementById('username');
+        let password=document.getElementById('password');
+        let button=document.getElementById('btn');
+        let form=document.getElementById('form');
+        form.addEventListener('submit',function(e){
+            if(username.value === "" || username.value == null){
+                e.preventDefault();
+                let errortext=document.getElementById('texterror');
+                errortext.innerText="Username Field is required";
+            }
+            else if(username.value.length<=3){
+                e.preventDefault();
+                let errortext=document.getElementById('texterror');
+                errortext.innerText="Username Field must required 4 character";
+            }
+             if(password.value === "" || password.value == null){
+                e.preventDefault();
+                let passerror=document.getElementById('passerror');
+                passerror.innerText="password Field is required";
+            }
+            else if(password.value.length <=3){
+                e.preventDefault();
+                let passerror=document.getElementById('passerror');
+                passerror.innerText="password length must be greater than 3"
+            }
+            
+        });
+       
+    </script>
+</body>
+</html>
